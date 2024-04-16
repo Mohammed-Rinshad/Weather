@@ -8,6 +8,7 @@ async function getData(){
     console.log(data)
     if(data.cod === 200){
         temperature.textContent = data.main.temp + "°"
+        temperature.style.color = "white"
     } else{
         temperature.textContent = 'City not Found'
         temperature.style.color = "red"
