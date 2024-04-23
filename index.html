@@ -4,63 +4,161 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Tilt+Neon&display=swap" rel="stylesheet">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tilt+Neon&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
     <title>Weather</title>
-</head>
-<body>
-    
     <style>
-
+        html, body{
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            background-image: url(morning.jpg);
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-color: white;
+        }
         body{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+           /* background-color: #52ceff;*/
             font-family: "Tilt Neon", sans-serif;
-            background-color: #87CEEB;
+            overflow-x: hidden; /* To prevent horizontal scrolling */
+            
         }
-        #search{
-            border-radius: 20px;
-            width: 50%;
-            height: 40px;
-            font-size: 20px;
+        header {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+        }
+        #search-container {
+            display: flex;
+            align-items: center;
+        }
+        #search {
+            width: 70%;
+            height: 35px;
+            margin-right: 10px;
+            border: none;
+            border-radius: 5px;
+            font-family: "Tilt Neon", sans-serif;
+            font-size: 18px;
+        }
+        #btn {
+            width: 30%;
+            height: 35px;
+            border: none;
+            border-radius: 5px;
+            background-color: aquamarine;
             font-family: "Tilt Neon", sans-serif;
         }
-        #sun{
-            width: 55%;
-
+        .sun {
+            width: 80px;
+            height: 80px;
+            background-color: #FFDE00;
+            border-radius: 50%;
+            box-shadow:
+                0 0 0 10px #FFDE0080,
+                0 0 0 20px #FFDE0040,
+                0 0 0 30px #FFDE0020,
+                0 0 0 40px #FFDE0010,
+                0 0 0 50px #FFDE0000,
+                0 0 20px 50px #FFDE0010;
+            animation:
+                sunrise 2s infinite linear forwards,
+                rays 2s 2s infinite linear;
+            margin-top: 20px;
+            margin-right: 20px;
+            display: none;
         }
-        #temp{
-            font-size: 50px;
+        @keyframes sunrise {
+            0% {
+                box-shadow: none;
+            }
+        }
+        @keyframes rays {
+            0% {
+                box-shadow: 
+                    0 0 0 0 #FFDE0080,
+                    0 0 0 10px #FFDE0080,
+                    0 0 0 20px #FFDE0040,
+                    0 0 0 30px #FFDE0020,
+                    0 0 0 40px #FFDE0010,
+                    0 0 20px 50px #FFDE0010;
+            }
+            100% {
+                box-shadow: 
+                    0 0 0 10px #FFDE0080,
+                    0 0 0 20px #FFDE0040,
+                    0 0 0 30px #FFDE0020,
+                    0 0 0 40px #FFDE0010,
+                    0 0 0 50px #FFDE0000,
+                    0 0 20px 50px #FFDE0010;
+            }
+        }
+        #temp {
+            font-size: 95px;
             font-family: "Quicksand", sans-serif;
-            font-weight: lighter;
+            font-weight: 600;
+            margin-top: 20px;
+            color: white;
+            margin-right: -1px;
         }
-        #btn{
-            border-radius: 20px;
-            width: 40%;
-            height: 30px;
-            font-size: 20px;
-            font-family: "Tilt Neon", sans-serif;
+        #temp-bg{
+            background-color: #F5F7F6;
+            width: 90%;
+            height: 30%;
+            border: none;
+            border-radius: 7px;
+            margin-top: 150px;
         }
-        #temp{
+        .results{
+            font-family: "Quicksand", sans-serif;
+            font-weight: 600;
             color: black;
+        }
+        #feels-like{
+            font-size: 18px;
+            margin-left: 15px;
+            margin-top: -18px;
+        }
+        #feels-like-results{
+            margin-top: -20px;
+            font-size: 33px;
+            margin-left: 24px;
+            
+        }
+        #feels-like-icon{
+            color: black;
+            font-size: 38px;
+            margin-left: 24px;
+
         }
 
     </style>
+</head>
+<body>
+    <header>
+        <div id="search-container">
+            <input id="search" type="search">
+            <button onclick="getData()" id="btn">Search</button>
+        </div>
+        <div class="sun"></div>
+    </header>
+    <h1 class="results" id="temp"></h1>
 
-    <center>
-        <br><br>
-        <input id="search" type="search">
-        <br><br>
-        <button onclick="getData()" id="btn"> search </button>
-    </center>
-    <br><br>
-        <img id="sun" src="https://png.pngtree.com/png-clipart/20221002/ourmid/pngtree-realistic-sun-3d-icon-render-png-image_6258912.png" alt="">
-    <center>
-        <h1 id="temp"></h1>
-    </center>
-
-
+    <div id="temp-bg">
+    <h2 id="feels-like-icon">🌡</h2>
+    <h2 class="results" id="feels-like-results"></h2>
+    <h2 class="results" id="feels-like"> Feels like </h2>
+    </div>
+    <script src="weather.js"></script>
 </body>
-<script src="weather.js"></script>
 </html>
