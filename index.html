@@ -103,21 +103,38 @@
                     0 0 20px 50px #FFDE0010;
             }
         }
+        #place-name{
+            font-size: 35px;
+            font-family: "Quicksand", sans-serif;
+            font-weight: 600;
+            margin-top: -5px;
+            color: white;
+            margin-right: 225px;
+        }
         #temp {
             font-size: 95px;
             font-family: "Quicksand", sans-serif;
             font-weight: 600;
-            margin-top: 20px;
+            margin-top: 10px;
             color: white;
             margin-right: -1px;
         }
-        #temp-bg{
+        #time{
+            font-size: 20px;
+            font-family: "Quicksand", sans-serif;
+            font-weight: 600;
+            margin-top: -70px;
+            color: white;
+            margin-right: 25px; 
+        }
+        #feels-like-bg{
             background-color: #F5F7F6;
-            width: 90%;
-            height: 30%;
+            width: 25%;
+            height: 12%;
             border: none;
             border-radius: 7px;
             margin-top: 150px;
+            margin-left: -65%;
         }
         .results{
             font-family: "Quicksand", sans-serif;
@@ -141,6 +158,55 @@
             margin-left: 24px;
 
         }
+        #high-temp-icon{
+            margin-top: 20%;
+            width: 28px;
+            margin-left: 24px;
+        }
+        #high-temp-results{
+            margin-top: -5%;
+            font-size: 25px;
+            margin-left: 25%;
+        }
+        #highest-temp{
+            font-size: 12px;
+            margin-left: 10px;
+            margin-top: -20px;
+        }
+        #high-temp-bg{
+            background-color: #F5F7F6;
+            width: 25%;
+            height: 12%;
+            border: none;
+            border-radius: 7px;
+            margin-top: -26.5%;
+            margin-left: -7%;
+        }
+        /* Low Temp */
+        #low-temp-bg{
+            background-color: #F5F7F6;
+            width: 25%;
+            height: 12%;
+            border: none;
+            border-radius: 7px;
+            margin-top: -26.5%;
+            margin-left: 50%;
+        }
+        #low-temp-results{
+            margin-top: -5%;
+            font-size: 25px;
+            margin-left: 25%;
+        }
+        #low-temp-icon{
+            margin-top: 20%;
+            width: 28px;
+            margin-left: 24px;
+        }
+        #low-temp{
+            font-size: 12px;
+            margin-left: 10px;
+            margin-top: -20px;
+        }
 
     </style>
 </head>
@@ -152,13 +218,28 @@
         </div>
         <div class="sun"></div>
     </header>
+    <h1 class="results" id="place-name"></h1>
     <h1 class="results" id="temp"></h1>
+    <h1 class="results" id="time"></h1>
 
-    <div id="temp-bg">
-    <img id="feels-like-icon" src="https://static-00.iconduck.com/assets.00/temperature-feels-like-icon-495x512-ylzv705f.png"></img>
-    <h2 class="results" id="feels-like-results"></h2>
+    <div id="feels-like-bg">
+    <img id="feels-like-icon" src="https://static-00.iconduck.com/assets.00/temperature-feels-like-icon-495x512-ylzv705f.png">
+    <h2 class="results" id="feels-like-results">~</h2>
     <h2 class="results" id="feels-like"> Feels like </h2>
     </div>
+
+    <div id="high-temp-bg">
+    <img id="high-temp-icon" src="https://cdn-icons-png.flaticon.com/512/74/74327.png">
+    <h2 class="results" id="high-temp-results">~</h2>
+    <h2 class="results" id="highest-temp">Max-Temp</h2>
+    </div>
+
+    <div id="low-temp-bg">
+    <img id="low-temp-icon" src="https://cdn-icons-png.flaticon.com/512/5118/5118028.png">
+    <h2 class="results" id="low-temp-results">~</h2>
+    <h2 class="results" id="low-temp">Min-Temp</h2>
+    </div>
+
     <script src="weather.js"></script>
 </body>
 </html>
