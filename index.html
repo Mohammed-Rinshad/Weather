@@ -56,52 +56,8 @@
             height: 35px;
             border: none;
             border-radius: 5px;
-            background-color: aquamarine;
+            background-color: rgb(0, 225, 255);
             font-family: "Tilt Neon", sans-serif;
-        }
-        .sun {
-            width: 80px;
-            height: 80px;
-            background-color: #FFDE00;
-            border-radius: 50%;
-            box-shadow:
-                0 0 0 10px #FFDE0080,
-                0 0 0 20px #FFDE0040,
-                0 0 0 30px #FFDE0020,
-                0 0 0 40px #FFDE0010,
-                0 0 0 50px #FFDE0000,
-                0 0 20px 50px #FFDE0010;
-            animation:
-                sunrise 2s infinite linear forwards,
-                rays 2s 2s infinite linear;
-            margin-top: 20px;
-            margin-right: 20px;
-            display: none;
-        }
-        @keyframes sunrise {
-            0% {
-                box-shadow: none;
-            }
-        }
-        @keyframes rays {
-            0% {
-                box-shadow: 
-                    0 0 0 0 #FFDE0080,
-                    0 0 0 10px #FFDE0080,
-                    0 0 0 20px #FFDE0040,
-                    0 0 0 30px #FFDE0020,
-                    0 0 0 40px #FFDE0010,
-                    0 0 20px 50px #FFDE0010;
-            }
-            100% {
-                box-shadow: 
-                    0 0 0 10px #FFDE0080,
-                    0 0 0 20px #FFDE0040,
-                    0 0 0 30px #FFDE0020,
-                    0 0 0 40px #FFDE0010,
-                    0 0 0 50px #FFDE0000,
-                    0 0 20px 50px #FFDE0010;
-            }
         }
         #place-name{
             font-size: 35px;
@@ -123,18 +79,26 @@
             font-size: 20px;
             font-family: "Quicksand", sans-serif;
             font-weight: 600;
-            margin-top: -70px;
+            margin-top: -75px;
+            color: white;
+            margin-right: 25px; 
+        }
+        #timezone{
+            font-size: 20px;
+            font-family: "Quicksand", sans-serif;
+            font-weight: 600;
+            margin-top: -15px;
             color: white;
             margin-right: 25px; 
         }
         #feels-like-bg{
             background-color: #F5F7F6;
-            width: 25%;
-            height: 12%;
+            width: 86px;
+            height: 40%;
             border: none;
             border-radius: 7px;
             margin-top: 150px;
-            margin-left: -65%;
+            margin-left: -115%;
         }
         .results{
             font-family: "Quicksand", sans-serif;
@@ -144,7 +108,7 @@
         #feels-like{
             font-size: 12px;
             margin-left: 15px;
-            margin-top: -18px;
+            margin-top: -26px;
         }
         #feels-like-results{
             margin-top: -2px;
@@ -175,22 +139,22 @@
         }
         #high-temp-bg{
             background-color: #F5F7F6;
-            width: 25%;
-            height: 12%;
+            width: 86px;
+            height: 40%;
             border: none;
             border-radius: 7px;
-            margin-top: -26.5%;
-            margin-left: -7%;
+            margin-top: -108px;
+            margin-left: 0%;
         }
         /* Low Temp */
         #low-temp-bg{
             background-color: #F5F7F6;
-            width: 25%;
-            height: 12%;
+            width: 86px;
+            height: 40%;
             border: none;
             border-radius: 7px;
-            margin-top: -26.5%;
-            margin-left: 50%;
+            margin-top: -116%;
+            margin-left: 120%;
         }
         #low-temp-results{
             margin-top: -5%;
@@ -207,6 +171,9 @@
             margin-left: 10px;
             margin-top: -20px;
         }
+        #temp-bgs{
+            margin-top: 10px;
+        }
 
     </style>
 </head>
@@ -221,7 +188,9 @@
     <h1 class="results" id="place-name"></h1>
     <h1 class="results" id="temp"></h1>
     <h1 class="results" id="time"></h1>
+    <h1 class="results" id="timezone"></h1>
 
+    <div id="temp-bgs">
     <div id="feels-like-bg">
     <img id="feels-like-icon" src="https://static-00.iconduck.com/assets.00/temperature-feels-like-icon-495x512-ylzv705f.png">
     <h2 class="results" id="feels-like-results">~</h2>
@@ -239,7 +208,7 @@
     <h2 class="results" id="low-temp-results">~</h2>
     <h2 class="results" id="low-temp">Min-Temp</h2>
     </div>
-
+    </div>
     <script src="weather.js"></script>
 </body>
 </html>
