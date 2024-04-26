@@ -6,6 +6,10 @@ let placeName = document.getElementById('place-name')
 let lowTemp = document.getElementById('low-temp-results')
 let time = document.getElementById('time')
 let timezone = document.getElementById('timezone')
+let humidity = document.getElementById('humidity-results')
+let windSpeed = document.getElementById('wind-speed-results')
+let pressure = document.getElementById('pressure-results')
+let locationPin = document.getElementById('location-pin')
 temperature.textContent = '~'
 
 async function getData(){
@@ -34,6 +38,10 @@ async function getData(){
         lowTemp.textContent = data.main.temp_min.toFixed(0) + "°"
         time.textContent = dataTime.hour + ':' + dataTime.minute 
         timezone.textContent = dataTime.timezone
+        humidity.textContent = data.main.humidity
+        windSpeed.textContent = data.wind.speed
+        pressure.textContent = data.main.pressure
+        locationPin.style.display = "block"
 
     } else{
         temperature.textContent = 'City not Found'
@@ -44,22 +52,18 @@ async function getData(){
         feelsLike.textContent = '~'
         highTemp.textContent = '~'
         lowTemp.textContent = '~'
-    }
+        humidity.textContent = '~'
+        windSpeed.textContent = '~'
+        pressure.textContent = '~'
+        locationPin.style.display = "none"
+        
+    }    
+
+}
 
    /* if((dataTime.hour >= '6') || (dataTime.hour <= '18')){
         console.log('day')
     }else{
         console.log('night')
     }*/
-
-
-}
-
-
-//getData()
-
-//.then(res => res.json())
-//.then(data => console.log(data))
-//.catch(error => console.log(error))
-
 

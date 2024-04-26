@@ -60,12 +60,18 @@
             font-family: "Tilt Neon", sans-serif;
         }
         #place-name{
-            font-size: 35px;
+            font-size: 20px;
             font-family: "Quicksand", sans-serif;
             font-weight: 600;
-            margin-top: -5px;
+            margin-top: -12px;
             color: white;
-            margin-right: 225px;
+            margin-right: -10px; 
+        }
+        #location-pin{
+            margin-top: -33px;
+            width: 12px;
+            margin-right: 105px;
+            display: none;
         }
         #temp {
             font-size: 95px;
@@ -92,12 +98,12 @@
             margin-right: 25px; 
         }
         #feels-like-bg{
-            background-color: #F5F7F6;
+            
             width: 86px;
             height: 40%;
             border: none;
             border-radius: 7px;
-            margin-top: 150px;
+            margin-top: 22px;
             margin-left: -115%;
         }
         .results{
@@ -138,7 +144,7 @@
             margin-top: -20px;
         }
         #high-temp-bg{
-            background-color: #F5F7F6;
+            
             width: 86px;
             height: 40%;
             border: none;
@@ -148,12 +154,12 @@
         }
         /* Low Temp */
         #low-temp-bg{
-            background-color: #F5F7F6;
+            
             width: 86px;
             height: 40%;
             border: none;
             border-radius: 7px;
-            margin-top: -116%;
+            margin-top: -115%;
             margin-left: 120%;
         }
         #low-temp-results{
@@ -174,6 +180,80 @@
         #temp-bgs{
             margin-top: 10px;
         }
+        /* Humidity*/
+        #humidity-bg{
+            
+            width: 86px;
+            height: 100%;
+            border: none;
+            border-radius: 7px;
+            margin-top: 35%;
+            margin-left: -236%;
+        }
+        #humidity-icon{
+            margin-top: 20%;
+            width: 28px;
+            margin-left: 24px;
+        }
+        #humidity-results{
+            margin-top: -5%;
+            font-size: 25px;
+            margin-left: 25%;
+        }
+        #humidity{
+            font-size: 12px;
+            margin-left: 10px;
+            margin-top: -20px;
+        }
+        /* WIND SPEED*/
+        #wind-speed-bg{
+            width: 86px;
+            height: 100%;
+            border: none;
+            border-radius: 7px;
+            margin-top: -115%;
+            margin-left: -120%;
+        }
+        #wind-speed-icon{
+            margin-top: 20%;
+            width: 29px;
+            margin-left: 24px;
+        }
+        #wind-speed-results{
+            margin-top: -5%;
+            font-size: 25px;
+            margin-left: 25%;
+        }
+        #wind-speed{
+            font-size: 12px;
+            margin-left: 10px;
+            margin-top: -20px;
+        }
+        /* PRESSURE*/
+        #pressure-bg{
+            
+            width: 86px;
+            height: 100%;
+            border: none;
+            border-radius: 7px;
+            margin-top: -116%;
+            margin-left: -2%;
+        }
+        #pressure-icon{
+            margin-top: 20%;
+            width: 29px;
+            margin-left: 28px;
+        }
+        #pressure-results{
+            margin-top: -5%;
+            font-size: 25px;
+            margin-left: 25%;
+        }
+        #pressure{
+            font-size: 12px;
+            margin-left: 20px;
+            margin-top: -20px;
+        }
 
     </style>
 </head>
@@ -185,10 +265,11 @@
         </div>
         <div class="sun"></div>
     </header>
-    <h1 class="results" id="place-name"></h1>
     <h1 class="results" id="temp"></h1>
     <h1 class="results" id="time"></h1>
     <h1 class="results" id="timezone"></h1>
+    <h1 class="results" id="place-name"></h1>
+    <img id="location-pin" src="https://static.vecteezy.com/system/resources/previews/009/266/428/original/location-icon-design-free-png.png">
 
     <div id="temp-bgs">
     <div id="feels-like-bg">
@@ -207,6 +288,23 @@
     <img id="low-temp-icon" src="https://cdn-icons-png.flaticon.com/512/5118/5118028.png">
     <h2 class="results" id="low-temp-results">~</h2>
     <h2 class="results" id="low-temp">Min-Temp</h2>
+
+    <div id="humidity-bg">
+    <img id="humidity-icon" src="https://static.thenounproject.com/png/3780917-200.png">
+    <h2 class="results" id="humidity-results">~</h2>
+    <h2 class="results" id="humidity">Humidity</h2>
+    </div>
+
+    <div id="wind-speed-bg">
+    <img id="wind-speed-icon" src="https://static.thenounproject.com/png/927231-200.png">
+    <h2 class="results" id="wind-speed-results">~</h2>
+    <h2 class="results" id="wind-speed">Wind Speed</h2>
+    </div>
+
+    <div id="pressure-bg">
+    <img id="pressure-icon" src="https://cdn4.iconfinder.com/data/icons/weather-287/32/92-_pressure-_air-_wind-_weather-512.png">
+    <h2 class="results" id="pressure-results">~</h2>
+    <h2 class="results" id="pressure">Pressure</h2>
     </div>
     </div>
     <script src="weather.js"></script>
