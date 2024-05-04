@@ -11,14 +11,21 @@ let windSpeed = document.getElementById('wind-speed-results')
 let pressure = document.getElementById('pressure-results')
 let locationPin = document.getElementById('location-pin')
 temperature.textContent = '~'
-navigator.geolocation.getCurrentPosition(showPosition);
+
+navigator.geolocation.getCurrentPosition(function(position) {
+    showPosition(position);
+    getData(); 
+});
+
+
+let latitude;
+let longitude;
 
 async function showPosition(position) {
-    let latitude = position.coords.latitude;
-    let longitude = position.coords.longitude;
-    console.log(latitude)
-    console.log(longitude)
-    const url = 'https://api.openweathermap.org/data/2.5/weather?lat='+ latitude  +'&lon='+ longitude +'&appid=e3d12c319691e524cefe4f135ee68935&units=metric'
+    latitude = position.coords.latitude;
+    longitude = position.coords.longitude;
+}
+    /*const url = 'https://api.openweathermap.org/data/2.5/weather?lat='+ latitude  +'&lon='+ longitude +'&appid=e3d12c319691e524cefe4f135ee68935&units=metric'
     const res = await fetch(url)
     const data = await res.json()
     console.log(data)
@@ -64,11 +71,11 @@ async function showPosition(position) {
         
     }
 }
-showPosition()
+showPosition()*/
 
 
 async function getData(){
-    const url = 'https://api.openweathermap.org/data/2.5/weather?q='+search.value+'&appid=e3d12c319691e524cefe4f135ee68935&units=metric'
+    const url = 'https://api.openweathermap.org/data/2.5/weather?q='+search.value+'&lat='+ latitude + '&lon='+ longitude +'& &appid=e3d12c319691e524cefe4f135ee68935&units=metric'
     const res = await fetch(url)
     const data = await res.json()
     console.log(data)
@@ -84,7 +91,9 @@ async function getData(){
     console.log(dataTime.hour)
     console.log(dataTime.minute)
 
-    if(data.cod === 200){
+    if(latitude === undefined){
+        temperature.textContent = '~'
+    }else if(data.cod === 200){
         temperature.textContent = data.main.temp.toFixed(0) + "°"
         temperature.style.color = "white"
         feelsLike.textContent = data.main.feels_like.toFixed(0) + "°"
@@ -116,5 +125,5 @@ async function getData(){
 
 }
 
-
-
+getData()
+showPosition()
