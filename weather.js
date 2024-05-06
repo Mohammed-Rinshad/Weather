@@ -125,5 +125,7 @@ async function getData(){
 
 }
 
-getData()
+setTimeout(function(){
+    getData()
+},3000) 
 showPosition()
