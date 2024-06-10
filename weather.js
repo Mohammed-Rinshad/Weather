@@ -80,10 +80,10 @@ async function getData(){
     const data = await res.json()
     console.log(data)
 
-    const urlTime = 'https://api.api-ninjas.com/v1/worldtime?city='+ data.name
+    const urlTime = 'https://api.api-ninjas.com/v1/worldtime?lat='+ data.coord.lat+ '&lon=' + data.coord.lon
     const request = new Request(urlTime,{
         headers:{
-            'X-Api-Key': 'QXoElErY68BxhS8kLRPRthnabMLNLDvQeR52fUGT'
+            'X-Api-Key': 'b2SRNiptGYDO4FEPDQ4IVkgkVowJdT830GIUBvuH'
         }
     })
     const resTime = await fetch(request)
