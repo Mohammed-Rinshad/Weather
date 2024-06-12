@@ -13,6 +13,7 @@ let locationPin = document.getElementById('location-pin')
 temperature.textContent = '~'
 let sideMenu = document.getElementById('side-bar')
 
+
 search.addEventListener('keydown', (e) =>{
     if(e.key === 'Enter'){
         getData(search.value)
