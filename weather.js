@@ -11,6 +11,13 @@ let windSpeed = document.getElementById('wind-speed-results')
 let pressure = document.getElementById('pressure-results')
 let locationPin = document.getElementById('location-pin')
 temperature.textContent = '~'
+let sideMenu = document.getElementById('side-bar')
+
+search.addEventListener('keydown', (e) =>{
+    if(e.key === 'Enter'){
+        getData(search.value)
+    }
+})
 
 navigator.geolocation.getCurrentPosition(function(position) {
     showPosition(position);
@@ -124,6 +131,15 @@ async function getData(){
     }    
 
 }
+
+    function MenuClick(){
+        sideMenu.style.left = "0"
+        // sideMenu.style.transition = "all .5 ease"
+    }
+
+    function CrossLine(){
+        sideMenu.style.left = "-250px"
+    }
 
 setTimeout(function(){
     getData()
