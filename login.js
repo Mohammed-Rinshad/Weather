@@ -63,7 +63,7 @@ document.getElementById('signupForm').addEventListener('submit', function(event)
             })
             .then(() => {
                 alert('SignUp successfully');
-                window.location.href = 'index.html'
+                window.location.href = 'weather.html'
             })
             .catch((error) => {
                 alert('Unsuccessful: ' + error);
@@ -82,7 +82,7 @@ document.getElementById('loginForm').addEventListener('submit', function(event) 
 
         if (existingData && existingData.password === loginPassword.value) {
             alert('Login successful');
-            window.location.href = 'index.html'
+            window.location.href = 'weather.html'
         } else {
             // alert('Login unsuccessful');
             loginError.style.display = 'block'
