@@ -11,7 +11,17 @@ let windSpeed = document.getElementById('wind-speed-results')
 let pressure = document.getElementById('pressure-results')
 let locationPin = document.getElementById('location-pin')
 temperature.textContent = '~'
+
+                                    // SIDE MENU AND WEATHER CARDS DOCUMENTATION
+
 let sideMenu = document.getElementById('side-bar')
+// let signupBtn = document.getElementById('signup-btn')
+// let loginBtn = document.getElementById('login-btn')
+// let loginUsername = document.getElementById('login-username')
+// let loginPassword = document.getElementById('login-password')
+// let signupUsername = document.getElementById('signup-username')
+// let signupPassword = document.getElementById('signup-password')
+// let signupEmail = document.getElementById('signup-email')
 
 
 search.addEventListener('keydown', (e) =>{
@@ -146,3 +156,14 @@ setTimeout(function(){
     getData()
 },3000) 
 showPosition()
+
+
+// function showSignUp() {
+//     document.getElementById('login-form').style.display = 'none';
+//     document.getElementById('signup-form').style.display = 'block';
+// }
+
+// function showLogin() {
+//     document.getElementById('signup-form').style.display = 'none';
+//     document.getElementById('login-form').style.display = 'block';
+// }

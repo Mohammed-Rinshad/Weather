@@ -3,467 +3,143 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Tilt+Neon&display=swap" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <title>Weather</title>
-    <style>
-        html, body{
-            width: 100%;
-            height: 100%;
+    <link rel="stylesheet" href="styles.css">
+</head>
+<style>
+    /* styles.css */
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
             margin: 0;
-            padding: 0;
-            background-image: url(morning.jpg);
-            background-position: center;
-            background-size: cover;
-            background-repeat: no-repeat;
-            background-color: white;
+            background: linear-gradient(to right, skyblue, white);
         }
-        body{
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            font-family: "Tilt Neon", sans-serif;
-            overflow-x: hidden; /* To prevent horizontal scrolling */
-            
-        }
-        header {
-            width: 100%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+
+        .container {
+            background-color: #fff;
             padding: 20px;
-        }
-        #search-container {
-            display: flex;
-            align-items: center;
-        }
-        #search {
-            width: 100%;
-            height: 35px;
-            margin-left: 10px;
-            border: none;
-            border-radius: 5px;
-            font-family: "Tilt Neon", sans-serif;
-            font-size: 18px;
-        }
-        #btn {
-            width: 40%;
-            height: 35px;
-            border: none;
-            border-radius: 5px;
-            background-color: rgb(0, 225, 255);
-            font-family: "Tilt Neon", sans-serif;
-            margin-left: 9px;
-
-        }
-        #place-name{
-            font-size: 20px;
-            font-family: "Quicksand", sans-serif;
-            font-weight: 600;
-            margin-top: -12px;
-            color: white;
-            margin-right: -10px; 
-        }
-        #location-pin{
-            margin-top: -33px;
-            width: 12px;
-            margin-right: 140px;
-            display: none;
-        }
-        #temp {
-            font-size: 95px;
-            font-family: "Quicksand", sans-serif;
-            font-weight: 600;
-            margin-top: 10px;
-            color: white;
-            margin-right: -1px;
-        }
-        #time{
-            font-size: 20px;
-            font-family: "Quicksand", sans-serif;
-            font-weight: 600;
-            margin-top: -75px;
-            color: white;
-            margin-right: 25px; 
-        }
-        #timezone{
-            font-size: 20px;
-            font-family: "Quicksand", sans-serif;
-            font-weight: 600;
-            margin-top: -15px;
-            color: white;
-            margin-right: 25px; 
-        }
-        #feels-like-bg{  
-            width: 86px;
-            height: 40%;
-            border: none;
-            border-radius: 7px;
-            margin-top: 22px;
-            margin-left: -115%;
-        }
-        .results{
-            font-family: "Quicksand", sans-serif;
-            font-weight: 600;
-            color: black;
-        }
-        #feels-like{
-            font-size: 12px;
-            margin-left: 15px;
-            margin-top: -26px;
-        }
-        #feels-like-results{
-            margin-top: -2px;
-            font-size: 25px;
-            margin-left: 24px;
-        
-        }
-        #feels-like-icon{
-            margin-top: 20px;
-            width: 28px;
-            margin-left: 24px;
-
-        }
-        #high-temp-icon{
-            margin-top: 20%;
-            width: 28px;
-            margin-left: 24px;
-        }
-        #high-temp-results{
-            margin-top: -5%;
-            font-size: 25px;
-            margin-left: 25%;
-        }
-        #highest-temp{
-            font-size: 12px;
-            margin-left: 10px;
-            margin-top: -20px;
-        }
-        #high-temp-bg{
-            
-            width: 86px;
-            height: 40%;
-            border: none;
-            border-radius: 7px;
-            margin-top: -108px;
-            margin-left: 0%;
-        }
-        /* Low Temp */
-        #low-temp-bg{
-            
-            width: 86px;
-            height: 40%;
-            border: none;
-            border-radius: 7px;
-            margin-top: -115%;
-            margin-left: 120%;
-        }
-        #low-temp-results{
-            margin-top: -5%;
-            font-size: 25px;
-            margin-left: 25%;
-        }
-        #low-temp-icon{
-            margin-top: 20%;
-            width: 28px;
-            margin-left: 24px;
-        }
-        #low-temp{
-            font-size: 12px;
-            margin-left: 10px;
-            margin-top: -20px;
-        }
-        #temp-bgs{
-            margin-top: 10px;
-        }
-        /* Humidity*/
-        #humidity-bg{
-            
-            width: 86px;
-            height: 100%;
-            border: none;
-            border-radius: 7px;
-            margin-top: 35%;
-            margin-left: -236%;
-        }
-        #humidity-icon{
-            margin-top: 20%;
-            width: 28px;
-            margin-left: 24px;
-        }
-        #humidity-results{
-            margin-top: -5%;
-            font-size: 25px;
-            margin-left: 25%;
-        }
-        #humidity{
-            font-size: 12px;
-            margin-left: 10px;
-            margin-top: -20px;
-        }
-        /* WIND SPEED*/
-        #wind-speed-bg{
-            width: 86px;
-            height: 100%;
-            border: none;
-            border-radius: 7px;
-            margin-top: -115%;
-            margin-left: -120%;
-        }
-        #wind-speed-icon{
-            margin-top: 20%;
-            width: 29px;
-            margin-left: 24px;
-        }
-        #wind-speed-results{
-            margin-top: -5%;
-            font-size: 25px;
-            margin-left: 25%;
-        }
-        #wind-speed{
-            font-size: 12px;
-            margin-left: 10px;
-            margin-top: -20px;
-        }
-        /* PRESSURE*/
-        #pressure-bg{
-            
-            width: 86px;
-            height: 100%;
-            border: none;
-            border-radius: 7px;
-            margin-top: -116%;
-            margin-left: -2%;
-        }
-        #pressure-icon{
-            margin-top: 20%;
-            width: 29px;
-            margin-left: 28px;
-        }
-        #pressure-results{
-            margin-top: -5%;
-            font-size: 25px;
-            margin-left: 25%;
-        }
-        #pressure{
-            font-size: 12px;
-            margin-left: 20px;
-            margin-top: -20px;
-        }
-
-        /*..................................... SIDE MENU........................*/
-
-        #side-bar{
-            position: fixed;
-            left: -250px;
-            width: 250px;
-            height: 100%;
-            background-color: rgb(157, 219, 244);
-            top: 0;
-            transition: all .5s ease;
-        }
-        #side-bar header{
-            font-size: 28px;
-            color: black;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 300px;
             text-align: center;
-            line-height: 70px;
-            background-color: rgb(135, 206, 235);
-            user-select: none;
-            width: 210px;
-            font-family: "Exo 2", sans-serif;
-            font-weight: 350;
-        }
-        #contact-us{
-            font-size: 23px;
-            /* text-align: center; */
-            font-family: "Montserrat", sans-serif;
-            font-weight: 450;
-            margin-left: 45px;
         }
 
-        #twitter-img{
-            width: 23px;
-            padding-left: 15px;
-
-        }
-        #linkedin-img{
-            width: 32px;
-            padding-left: 15px;
-
-        }
-        #instagram-img{
-            width: 37px;
-            padding-left: 15px;
-
-        }
-        #email-img{
-            width: 27px;
-            padding-left: 15px;
-            margin-top: -100px;
-
+        h2 {
+            margin-bottom: 20px;
         }
 
-        #crossline-img{
-            width: 25px;
-            padding-left: 15px;
-            /* margin-top: -100px; */
+        .input-group {
+            margin-bottom: 15px;
+            text-align: left;
         }
 
-        #crossline-div{
-            margin-left: 195px;
-            margin-top: -150px;
+        .input-group label {
+            display: block;
+            margin-bottom: 5px;
         }
 
-        #twitter-div{
-            margin-left: 40px;
-            margin-top: 125px;
-
-        }
-        #linkedin-div{
-            margin-left: 75px;
-            margin-top: -32px;
-        }
-        #instagram-div{
-            margin-left: 115px;
-            margin-top: -38px;
-        }
-        #menu-img{
-            width: 30px;
-            margin-left: 13px;
+        .input-group input {
+            width: 100%;
+            padding: 10px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 5px;
         }
 
-
-        /* #check{
-            display: none;
-        }
-        label #btn,label #cancel{
-            position: absolute;
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
             cursor: pointer;
         }
-        label #btn{
-            left: 40px;
-            top: 25px;
-            font-size: 35px;
-            color: white;
+
+        button:hover {
+            background-color: #45a049;
         }
-        label #cancel{
-            z-index: 1111;
-            left: 195px;
-            top: 17px;
-            font-size: 30px;
-            color: blue;
-            padding: 4px 9px;
-        } */
-        
-        /* .sidebar ul a{
+
+        .error-message {
+            color: red;
+            font-size: 0.875em;
+            display: none; /* Hide by default, show only when needed */
+        }
+
+        .toggle-form-text {
+            margin-top: 10px;
+            font-size: 0.875em;
+        }
+
+        .toggle-form-text a {
+            color: #4CAF50;
+            text-decoration: none;
+        }
+
+        .toggle-form-text a:hover {
+            text-decoration: underline;
+        }
+
+        .form-container {
+            display: none;
+        }
+
+        #login-form {
             display: block;
-            height: 100%;
-            width: 100%;
-            line-height: 65px;
-            font-size: 20px;
-            color: white;
-            padding-left: 40px;
-            box-sizing: border-box;
-            border-top: 1px solid rgba(255,255,255,.1);
-            border-bottom: 1px solid black;
-        } */
+        }
 
-    </style>
-</head>
+        #signup-form {
+            display: none;
+        }
+</style>
 <body>
-    <!-- <input type="checkbox" id="check">
-    <label for="check">
-        <i class="fa fa-bars" id="btn"></i>
-        <i class="fa fa-times" id="cancel"></i>
-    </label> -->
-    <header>
-        <div id="search-container">
-            <img onclick="MenuClick()" id="menu-img" src="https://www.svgrepo.com/show/94793/menu-button-of-three-horizontal-lines.svg">
-            <input id="search" type="search">
-            <button onclick="getData()" id="btn">Search</button>
+    <div class="container">
+        <div class="form-container" id="login-form">
+            <h2>Login</h2>
+            <form id="loginForm" method="POST">
+                <div class="input-group">
+                    <label for="login-username">Username</label>
+                    <input type="text" id="login-username" name="username" required>
+                </div>
+                <div class="input-group">
+                    <label for="login-password">Password</label>
+                    <input type="password" id="login-password" name="password" required>
+                </div>
+                <p class="error-message" id="login-error">Incorrect password. Please try again.</p>
+                <button id="login-btn" type="submit">Login</button>
+                <p id="showSignUp" class="toggle-form-text">Not registered? <a href="#" >Sign up</a></p>
+            </form>
         </div>
-        <!-- <div class="sun"></div> -->
-    </header>
-    <h1 class="results" id="temp"></h1>
-    <h1 class="results" id="time"></h1>
-    <h1 class="results" id="timezone"></h1>
-    <h1 class="results" id="place-name"></h1>
-    <img id="location-pin" src="https://static.vecteezy.com/system/resources/previews/009/266/428/original/location-icon-design-free-png.png">
-
-    <div id="temp-bgs">
-    <div id="feels-like-bg">
-    <img id="feels-like-icon" src="https://static-00.iconduck.com/assets.00/temperature-feels-like-icon-495x512-ylzv705f.png">
-    <h2 class="results" id="feels-like-results">~</h2>
-    <h2 class="results" id="feels-like"> Feels like </h2>
-    </div>
-
-    <div id="high-temp-bg">
-    <img id="high-temp-icon" src="https://cdn-icons-png.flaticon.com/512/74/74327.png">
-    <h2 class="results" id="high-temp-results">~</h2>
-    <h2 class="results" id="highest-temp">Max-Temp</h2>
-    </div>
-
-    <div id="low-temp-bg">
-    <img id="low-temp-icon" src="https://cdn-icons-png.flaticon.com/512/5118/5118028.png">
-    <h2 class="results" id="low-temp-results">~</h2>
-    <h2 class="results" id="low-temp">Min-Temp</h2>
-
-    <div id="humidity-bg">
-    <img id="humidity-icon" src="https://static.thenounproject.com/png/3780917-200.png">
-    <h2 class="results" id="humidity-results">~</h2>
-    <h2 class="results" id="humidity">Humidity</h2>
-    </div>
-
-    <div id="wind-speed-bg">
-    <img id="wind-speed-icon" src="https://static.thenounproject.com/png/927231-200.png">
-    <h2 class="results" id="wind-speed-results">~</h2>
-    <h2 class="results" id="wind-speed">Wind Speed</h2>
-    </div>
-
-    <div id="pressure-bg">
-    <img id="pressure-icon" src="https://cdn4.iconfinder.com/data/icons/weather-287/32/92-_pressure-_air-_wind-_weather-512.png">
-    <h2 class="results" id="pressure-results">~</h2>
-    <h2 class="results" id="pressure">Pressure</h2>
-    </div>
-    </div>
-
-    <div id="side-bar">
-        <header>Weather.RDev</header>
-            <h1 id="contact-us">contact-me</h1>
-             <!-- <h1 id="contact-us">Contact us</h1> -->
-
-    <div id="crossline-div">
-        <img onclick="CrossLine()" id="crossline-img" src="https://fontkiko.com/storage/kiko/icons/cross-line/regular/cross-line.png">
-    </div>
-
-    <div id="twitter-div">    
-        <a href="https://x.com/imRinshad"><img id="twitter-img" src="https://png.pngtree.com/png-clipart/20230916/original/pngtree-twitter-social-platform-icon-vector-png-image_12256688.png"></a>
-    </div>
-
-    <div id="linkedin-div">
-        <a href="https://www.linkedin.com/in/mohammed-rinshad-77424b288/"><img id="linkedin-img" src="https://static.vecteezy.com/system/resources/previews/023/986/970/non_2x/linkedin-logo-linkedin-logo-transparent-linkedin-icon-transparent-free-free-png.png"></a>
-    </div>
-
-    <div id="instagram-div"> 
-        <a href="https://www.instagram.com/rinshad.dev/?next=%2F"><img id="instagram-img" src="https://static.vecteezy.com/system/resources/previews/018/930/415/non_2x/instagram-logo-instagram-icon-transparent-free-png.png"></a>
-    </div>
-
-    <!-- <div id="email-div">   
-        <a><img id="email-img" src="https://clipart-library.com/new_gallery/107-1073227_email-icon-greyscale-transparent-background-edit-email-2018.png"></a>
-    </div> -->
-
+        
+        <div class="form-container" id="signup-form" style="display: none;">
+            <h2>Sign Up</h2>
+            <form id="signupForm" method="POST">
+                <div class="input-group">
+                    <label for="signup-username">Username</label>
+                    <input type="text" id="signup-username" name="username" required>
+                </div>
+                <div class="input-group">
+                    <label for="signup-email">Email</label>
+                    <input type="email" id="signup-email" name="email" required>
+                </div>
+                <div class="input-group">
+                    <label for="signup-password">Password</label>
+                    <input type="password" id="signup-password" name="password" required>
+                    <p class="error-message" id="signup-error">This username is already exists</p>
+                </div>
+                <button id="signup-btn" type="submit">Sign Up</button>
+                <p id="showLogin" class="toggle-form-text">Already registered? <a href="#">Login</a></p>
+            </form>
+        </div>
     </div>
     
-    <script src="weather.js"></script>
+    <!-- <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-database.js"></script> -->
+
+    <script type="module" src="login.js"></script>
 </body>
 </html>
