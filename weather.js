@@ -55,7 +55,7 @@ let weatherWidgetHumidity = document.getElementById('weather-cards-humidity')
 
 search.addEventListener('keydown', (e) =>{
     if(e.key === 'Enter'){
-        getData(search.value)
+        getData(search.value.trim())
     }
 })
 
@@ -122,7 +122,7 @@ showPosition()*/
 
 
 async function getData(){
-    const url = 'https://api.openweathermap.org/data/2.5/weather?q='+search.value+'&lat='+ latitude + '&lon='+ longitude +'& &appid=e3d12c319691e524cefe4f135ee68935&units=metric'
+    const url = 'https://api.openweathermap.org/data/2.5/weather?q='+search.value.trim() +'&lat='+ latitude + '&lon='+ longitude +'& &appid=e3d12c319691e524cefe4f135ee68935&units=metric'
     const res = await fetch(url)
     const data = await res.json()
     console.log(data)
@@ -175,7 +175,7 @@ async function getData(){
 }
 
 async function createWeatherWidget(city) {
-    const url = 'https://api.openweathermap.org/data/2.5/weather?q=' + city + '&appid=e3d12c319691e524cefe4f135ee68935&units=metric';
+    const url = 'https://api.openweathermap.org/data/2.5/weather?q=' + city.trim() + '&appid=e3d12c319691e524cefe4f135ee68935&units=metric';
     const res = await fetch(url);
     const data = await res.json();
 
@@ -242,7 +242,7 @@ async function WidgetClick() {
         let weatherWidgetArray = JSON.parse(localStorage.getItem('Addcity')) || [];
 
         // Check if the city already exists in the array
-        if (!weatherWidgetArray.includes(weatherWidgetInput.value)) {
+        if (!weatherWidgetArray.includes(weatherWidgetInput.value.trim())) {
             weatherWidgetArray.push(weatherWidgetInput.value);
             localStorage.setItem('Addcity', JSON.stringify(weatherWidgetArray));
             weatherWidgetInput.value = '';
